@@ -1,18 +1,18 @@
 import { useRef } from "react";
-import { Grid, InfiniteLoading } from "./styles";
+import { Error, Grid, InfiniteLoading } from "./styles";
 import useInfiniteScroll from "../../../hooks/useInfiniteScroll";
 import useLoadPictures from "../../../concepts/Pictures/hooks/useLoadPictures";
 import useFavoritePicture from "../../../concepts/Pictures/hooks/useFavoritePicture";
 import Loader from "../../../components/Loader/Loader";
-import Picture from "./Photo";
+import Picture from "./Picture";
 
 // Feel free to choose between Unsplash and Flicker
-// import PhotoRepository from "../repositories/UnsplashRepository";
-import PhotoRepository from "../repositories/FlickerRepository";
+import PictureRepository from "../repositories/UnsplashRepository";
+// import PictureRepository from "../repositories/FlickerRepository";
 
 const Gallery: React.FC = () => {
   const { loading, hasNextPage, pictures, loadMore, error } =
-    useLoadPictures(PhotoRepository);
+    useLoadPictures(PictureRepository);
 
   const { isFavorite, addFavorite } = useFavoritePicture();
   const ref = useRef(null);
@@ -21,7 +21,7 @@ const Gallery: React.FC = () => {
 
   return (
     <>
-      {error && <>{error}</>}
+      {error && <Error>{error}</Error>}
 
       <Grid>
         {pictures.map((picture) => (

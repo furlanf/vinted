@@ -3,7 +3,7 @@ import {
   parseResponseWithTotal,
   parsePictures,
 } from "../parsers/unsplashParser";
-import { PhotoRepositoryType } from "../types/repository";
+import { PictureRepositoryType } from "../types/repository";
 
 const PER_PAGE = 12;
 
@@ -28,5 +28,5 @@ const find = async (page: number = 1) => {
   }
 };
 
-const UnsplashRepository: PhotoRepositoryType = { find };
+const UnsplashRepository: PictureRepositoryType = { find };
 export default UnsplashRepository;

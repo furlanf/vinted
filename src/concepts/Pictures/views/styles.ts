@@ -17,3 +17,7 @@ export const Grid = styled.div`
 `;
 
 export const InfiniteLoading = styled.div``;
+
+export const Error = styled.span`
+  color: red;
+`;

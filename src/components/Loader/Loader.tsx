@@ -2,7 +2,7 @@ import { LoaderBox, Dot } from "./styles";
 
 const Loader = () => {
   return (
-    <LoaderBox>
+    <LoaderBox title="Loading">
       <Dot />
       <Dot />
       <Dot />

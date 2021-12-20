@@ -1,5 +1,5 @@
 import { PicturesResult } from "./pictures";
 
-export type PhotoRepositoryType = {
+export type PictureRepositoryType = {
   find(page: number): Promise<PicturesResult>;
 };

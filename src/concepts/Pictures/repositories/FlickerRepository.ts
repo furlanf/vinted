@@ -1,7 +1,7 @@
 import FlickerApi from "../../../config/FlickerApi";
 import { parsePictures } from "../parsers/flickerParser";
 import { FlickerResult } from "../types/flicker";
-import { PhotoRepositoryType } from "../types/repository";
+import { PictureRepositoryType } from "../types/repository";
 
 const { REACT_APP_FLICKER_API_KEY } = process.env;
 
@@ -12,7 +12,7 @@ const requestParams =
 
 const PER_PAGE = 12;
 
-const find = async (page: number = 1) => {
+const find = async (page = 1) => {
   const requestURL = `/${requestParams}&per_page=${PER_PAGE}&page=${page}`;
 
   try {
@@ -32,5 +32,5 @@ const find = async (page: number = 1) => {
   }
 };
 
-const FlickerRepository: PhotoRepositoryType = { find };
+const FlickerRepository: PictureRepositoryType = { find };
 export default FlickerRepository;

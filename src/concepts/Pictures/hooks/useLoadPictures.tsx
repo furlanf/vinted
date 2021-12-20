@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 
 import { Pictures } from "../types/pictures";
-import { PhotoRepositoryType } from "../types/repository";
+import { PictureRepositoryType } from "../types/repository";
 
 type useLoadPicturesType = {
   loading: boolean;
@@ -12,7 +12,7 @@ type useLoadPicturesType = {
 };
 
 const useLoadPictures = (
-  PhotoRepository: PhotoRepositoryType
+  PictureRepository: PictureRepositoryType
 ): useLoadPicturesType => {
   const [pictures, setPictures] = useState<Pictures>([]);
   const [loading, setLoading] = useState(false);
@@ -28,14 +28,14 @@ const useLoadPictures = (
         pictures: pic,
         isLastPage,
         error,
-      } = await PhotoRepository.find(nextPage);
+      } = await PictureRepository.find(nextPage);
 
       setHasNextPage(!isLastPage);
       setLoading(false);
       setError(error);
       setPictures((prevPictures) => [...prevPictures, ...pic]);
     },
-    [PhotoRepository]
+    [PictureRepository]
   );
 
   useEffect(() => {

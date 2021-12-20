@@ -29,6 +29,7 @@ const Picture: React.FC<PictureProps> = ({
             e.currentTarget.style.opacity = "1";
           }}
           src={picture.images.medium}
+          title={picture.description}
           alt={picture.altDescription}
           loading="lazy"
         />
@@ -40,6 +41,7 @@ const Picture: React.FC<PictureProps> = ({
         <CardButton
           favorite={isFavorite(picture.id)}
           onClick={() => addFavorite(picture.id)}
+          name="Favorite"
         >
           Favorite
         </CardButton>
